@@ -3,252 +3,1816 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Salame — C/C++ & Linux Systems Developer</title>
+
+  <title>Daniel Salame — Software Engineer | C++, Linux Systems, Optimization & AI</title>
+
+  <meta
+    name="description"
+    content="Daniel Salame — Software Engineer focused on C/C++, Linux systems, distributed storage, concurrency, optimization, AI/NLP and backend engineering."
+  >
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #2c2c2a; line-height: 1.7; background: #ffffff; }
-    @media (prefers-color-scheme: dark) {
-      html, body { background: #1a1a19; color: #e6e6e4; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    
-    .header { background: linear-gradient(135deg, #f5f5f3 0%, #ebebeb 100%); border-bottom: 1px solid #d3d1c7; padding: 4rem 1.5rem; text-align: center; }
-    @media (prefers-color-scheme: dark) {
-      .header { background: #2c2c2a; border-bottom: 1px solid #444441; }
+
+    html {
+      scroll-behavior: smooth;
     }
-    
-    .header h1 { font-size: 36px; font-weight: 500; margin-bottom: 0.75rem; letter-spacing: -0.5px; }
-    .header .tagline { font-size: 18px; color: #888780; margin-bottom: 1.5rem; font-weight: 400; }
-    @media (prefers-color-scheme: dark) {
-      .header .tagline { color: #b4b2a9; }
+
+    body {
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+      color: #2c2c2a;
+      line-height: 1.7;
+      background: #ffffff;
     }
-    
-    .header .contact { font-size: 14px; color: #888780; }
-    .header .contact a { color: #185fa5; text-decoration: none; transition: color 0.2s; }
-    .header .contact a:hover { color: #0c447c; text-decoration: underline; }
-    @media (prefers-color-scheme: dark) {
-      .header .contact { color: #b4b2a9; }
-      .header .contact a { color: #85b7eb; }
-      .header .contact a:hover { color: #b5d4f4; }
+
+    a {
+      color: inherit;
     }
-    
-    .container { max-width: 850px; margin: 0 auto; padding: 3rem 1.5rem; }
-    
-    .section { margin-bottom: 3.5rem; }
-    .section h2 { font-size: 20px; font-weight: 500; margin-bottom: 1.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #2c2c2a; font-size: 14px; }
-    @media (prefers-color-scheme: dark) {
-      .section h2 { color: #e6e6e4; }
+
+    /* =========================
+       TOP NAVIGATION
+       ========================= */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      border-bottom: 1px solid #e5e3dc;
     }
-    
-    .intro { color: #5f5e5a; line-height: 1.8; margin-bottom: 0; font-size: 15px; }
-    @media (prefers-color-scheme: dark) {
-      .intro { color: #b4b2a9; }
+
+    .nav-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0.9rem 1.5rem;
     }
-    
-    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
-    .skill-card { background: #f1efe8; border: 1px solid #d3d1c7; border-radius: 8px; padding: 1.25rem; }
-    @media (prefers-color-scheme: dark) {
-      .skill-card { background: #26241f; border: 1px solid #444441; }
+
+    .nav-name {
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
     }
-    
-    .skill-card h3 { font-size: 12px; font-weight: 600; color: #5f5e5a; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem; }
-    @media (prefers-color-scheme: dark) {
-      .skill-card h3 { color: #888780; }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
     }
-    
-    .skill-card p { font-size: 14px; color: #2c2c2a; line-height: 1.6; }
-    @media (prefers-color-scheme: dark) {
-      .skill-card p { color: #d3d1c7; }
+
+    .nav-links a {
+      font-size: 13px;
+      color: #5f5e5a;
+      text-decoration: none;
+      transition: color 0.2s;
     }
-    
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .project { background: #ffffff; border: 1px solid #d3d1c7; border-radius: 10px; padding: 1.75rem; transition: all 0.2s; }
-    @media (prefers-color-scheme: dark) {
-      .project { background: #26241f; border: 1px solid #444441; }
+
+    .nav-links a:hover {
+      color: #185fa5;
     }
-    
-    .project:hover { border-color: #888780; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    @media (prefers-color-scheme: dark) {
-      .project:hover { border-color: #5f5e5a; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+
+    /* =========================
+       HEADER / HERO
+       ========================= */
+
+    .header {
+      background:
+        linear-gradient(
+          135deg,
+          #f7f7f5 0%,
+          #eeeeeb 100%
+        );
+
+      border-bottom: 1px solid #d3d1c7;
+
+      padding: 5rem 1.5rem 4.5rem;
+      text-align: center;
     }
-    
-    .project h3 { font-size: 16px; font-weight: 500; margin-bottom: 0.5rem; }
-    .project .tech { font-size: 12px; color: #888780; margin-bottom: 0.75rem; font-weight: 500; }
-    @media (prefers-color-scheme: dark) {
-      .project .tech { color: #5f5e5a; }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
     }
-    
-    .project p { font-size: 14px; color: #5f5e5a; line-height: 1.6; margin-bottom: 1rem; }
-    @media (prefers-color-scheme: dark) {
-      .project p { color: #b4b2a9; }
+
+    .header h1 {
+      font-size: clamp(38px, 6vw, 54px);
+      font-weight: 600;
+
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+
+      margin-bottom: 1rem;
     }
-    
-    .project a { color: #185fa5; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500; }
-    .project a:hover { text-decoration: underline; }
-    @media (prefers-color-scheme: dark) {
-      .project a { color: #85b7eb; }
+
+    .header .tagline {
+      font-size: clamp(18px, 3vw, 22px);
+      color: #5f5e5a;
+
+      margin-bottom: 1.25rem;
+      font-weight: 400;
     }
-    
-    .experience-item { margin-bottom: 2.25rem; padding-bottom: 2.25rem; border-bottom: 1px solid #d3d1c7; }
-    @media (prefers-color-scheme: dark) {
-      .experience-item { border-bottom: 1px solid #444441; }
+
+    .header .subtagline {
+      max-width: 720px;
+      margin: 0 auto 1.7rem;
+
+      font-size: 15px;
+      color: #77756f;
+      line-height: 1.8;
     }
-    
-    .experience-item:last-child { border-bottom: none; }
-    .exp-title { font-size: 15px; font-weight: 500; margin-bottom: 0.25rem; }
-    .exp-meta { font-size: 13px; color: #888780; margin-bottom: 0.75rem; }
-    @media (prefers-color-scheme: dark) {
-      .exp-meta { color: #5f5e5a; }
+
+    .contact {
+      font-size: 14px;
+      color: #888780;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      gap: 0.55rem;
     }
-    
-    .exp-desc { font-size: 14px; color: #5f5e5a; line-height: 1.7; }
-    @media (prefers-color-scheme: dark) {
-      .exp-desc { color: #b4b2a9; }
+
+    .contact a {
+      color: #185fa5;
+      text-decoration: none;
+      transition: color 0.2s;
     }
-    
-    .cta-section { text-align: center; padding: 2.5rem 0; }
-    .cta-section p { margin-bottom: 1.5rem; color: #888780; font-size: 15px; }
-    @media (prefers-color-scheme: dark) {
-      .cta-section p { color: #b4b2a9; }
+
+    .contact a:hover {
+      color: #0c447c;
+      text-decoration: underline;
     }
-    
-    .cta-btn { display: inline-block; padding: 0.85rem 2rem; border: 1px solid #185fa5; border-radius: 6px; color: #ffffff; background: #185fa5; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; cursor: pointer; }
-    .cta-btn:hover { background: #0c447c; border-color: #0c447c; }
-    @media (prefers-color-scheme: dark) {
-      .cta-btn { background: #185fa5; border-color: #378add; }
-      .cta-btn:hover { background: #0c447c; border-color: #0c447c; }
+
+    .hero-tags {
+      margin-top: 2rem;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+
+      gap: 0.55rem;
     }
-    
-    .footer { background: #f1efe8; border-top: 1px solid #d3d1c7; padding: 2.5rem 1.5rem; text-align: center; color: #888780; font-size: 13px; }
-    @media (prefers-color-scheme: dark) {
-      .footer { background: #1a1a19; border-top: 1px solid #444441; color: #888780; }
+
+    .hero-tag {
+      padding: 0.35rem 0.75rem;
+
+      border-radius: 999px;
+      border: 1px solid #d3d1c7;
+
+      background: rgba(255, 255, 255, 0.65);
+
+      color: #5f5e5a;
+      font-size: 12px;
+      font-weight: 500;
     }
-    
-    .footer a { color: #185fa5; text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-    @media (prefers-color-scheme: dark) {
-      .footer a { color: #85b7eb; }
+
+    /* =========================
+       GENERAL LAYOUT
+       ========================= */
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
     }
-    
-    .footer .social { margin-top: 1.25rem; }
-    .footer .social a { margin: 0 1rem; }
-    
-    .footer .tagline { margin-top: 1.5rem; color: #5f5e5a; }
+
+    .section {
+      margin-bottom: 5rem;
+      scroll-margin-top: 90px;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      font-size: 14px;
+      font-weight: 600;
+
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+
+      color: #2c2c2a;
+
+      margin-bottom: 0.55rem;
+    }
+
+    .section-subtitle {
+      color: #888780;
+      font-size: 14px;
+      max-width: 700px;
+    }
+
+    /* =========================
+       ABOUT
+       ========================= */
+
+    .intro {
+      color: #5f5e5a;
+
+      line-height: 1.9;
+      font-size: 16px;
+
+      max-width: 900px;
+    }
+
+    .intro strong {
+      color: #2c2c2a;
+      font-weight: 600;
+    }
+
+    /* =========================
+       SKILLS
+       ========================= */
+
+    .skills-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 1rem;
+    }
+
+    .skill-card {
+      background: #f6f5f1;
+
+      border: 1px solid #dedcd3;
+      border-radius: 9px;
+
+      padding: 1.35rem;
+    }
+
+    .skill-card h3 {
+      font-size: 12px;
+      font-weight: 650;
+
+      color: #5f5e5a;
+
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+
+      margin-bottom: 0.7rem;
+    }
+
+    .skill-card p {
+      font-size: 14px;
+      color: #2c2c2a;
+
+      line-height: 1.65;
+    }
+
+    /* =========================
+       FEATURED PROJECTS
+       ========================= */
+
+    .projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 1.4rem;
+    }
+
+    .project {
+      background: #ffffff;
+
+      border: 1px solid #d3d1c7;
+      border-radius: 12px;
+
+      padding: 1.75rem;
+
+      transition:
+        transform 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+
+      border-color: #9f9d96;
+
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .project-featured {
+      grid-column: 1 / -1;
+
+      padding: 2rem;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff 0%,
+          #f8f8f5 100%
+        );
+    }
+
+    .project-label {
+      display: inline-block;
+
+      font-size: 10px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+
+      color: #185fa5;
+
+      margin-bottom: 0.65rem;
+    }
+
+    .project h3 {
+      font-size: 19px;
+      font-weight: 600;
+
+      line-height: 1.35;
+
+      margin-bottom: 0.45rem;
+    }
+
+    .project-featured h3 {
+      font-size: 24px;
+    }
+
+    .project .tech {
+      font-size: 12px;
+
+      color: #888780;
+
+      margin-bottom: 1rem;
+      font-weight: 550;
+    }
+
+    .project p {
+      font-size: 14px;
+
+      color: #5f5e5a;
+      line-height: 1.7;
+
+      margin-bottom: 1rem;
+    }
+
+    .project ul {
+      padding-left: 1.15rem;
+
+      margin: 0.9rem 0 1.25rem;
+    }
+
+    .project li {
+      color: #5f5e5a;
+
+      font-size: 13.5px;
+      line-height: 1.65;
+
+      margin-bottom: 0.4rem;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 1rem;
+
+      margin-top: 1.1rem;
+    }
+
+    .project-links a {
+      color: #185fa5;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      text-decoration: none;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       SYSTEMS PROJECTS
+       ========================= */
+
+    .small-projects-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+      gap: 1rem;
+    }
+
+    .small-project {
+      border-left: 3px solid #d3d1c7;
+
+      padding: 0.35rem 0 0.35rem 1.25rem;
+    }
+
+    .small-project h3 {
+      font-size: 15px;
+      font-weight: 600;
+
+      margin-bottom: 0.3rem;
+    }
+
+    .small-project .tech {
+      font-size: 11px;
+
+      color: #888780;
+
+      margin-bottom: 0.55rem;
+    }
+
+    .small-project p {
+      font-size: 13.5px;
+
+      color: #5f5e5a;
+      line-height: 1.65;
+    }
+
+    .small-project a {
+      display: inline-block;
+
+      color: #185fa5;
+
+      font-size: 12px;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      margin-top: 0.6rem;
+    }
+
+    .small-project a:hover {
+      text-decoration: underline;
+    }
+
+    /* =========================
+       EXPERIENCE
+       ========================= */
+
+    .experience-list {
+      max-width: 900px;
+    }
+
+    .experience-item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+
+      border-bottom: 1px solid #e2e0d8;
+    }
+
+    .experience-item:last-child {
+      border-bottom: none;
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+
+      gap: 1rem;
+
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .exp-meta {
+      font-size: 13px;
+      color: #888780;
+
+      white-space: nowrap;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+
+      color: #5f5e5a;
+
+      line-height: 1.75;
+    }
+
+    .exp-desc strong {
+      color: #2c2c2a;
+    }
+
+    /* =========================
+       EDUCATION
+       ========================= */
+
+    .education-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 1rem;
+    }
+
+    .education-card {
+      border: 1px solid #d3d1c7;
+      border-radius: 10px;
+
+      padding: 1.5rem;
+    }
+
+    .education-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+
+      margin-bottom: 0.4rem;
+    }
+
+    .education-card .school {
+      color: #5f5e5a;
+      font-size: 14px;
+
+      margin-bottom: 0.2rem;
+    }
+
+    .education-card .date {
+      color: #888780;
+      font-size: 12px;
+    }
+
+    /* =========================
+       CTA
+       ========================= */
+
+    .cta-section {
+      text-align: center;
+
+      padding: 3.5rem 1.5rem;
+
+      background: #f6f5f1;
+
+      border: 1px solid #dedcd3;
+      border-radius: 14px;
+    }
+
+    .cta-section h2 {
+      font-size: 24px;
+
+      text-transform: none;
+      letter-spacing: -0.4px;
+
+      margin-bottom: 0.7rem;
+    }
+
+    .cta-section p {
+      margin: 0 auto 1.5rem;
+
+      max-width: 620px;
+
+      color: #77756f;
+      font-size: 14px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 0.75rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+
+      padding: 0.8rem 1.6rem;
+
+      border-radius: 7px;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition: all 0.2s;
+    }
+
+    .cta-btn-primary {
+      border: 1px solid #185fa5;
+
+      color: #ffffff;
+      background: #185fa5;
+    }
+
+    .cta-btn-primary:hover {
+      background: #0c447c;
+      border-color: #0c447c;
+    }
+
+    .cta-btn-secondary {
+      border: 1px solid #c7c5bc;
+
+      color: #2c2c2a;
+      background: #ffffff;
+    }
+
+    .cta-btn-secondary:hover {
+      border-color: #888780;
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    .footer {
+      margin-top: 2rem;
+
+      background: #f1efe8;
+
+      border-top: 1px solid #d3d1c7;
+
+      padding: 2.5rem 1.5rem;
+
+      text-align: center;
+
+      color: #888780;
+      font-size: 13px;
+    }
+
+    .footer .social {
+      margin-top: 1rem;
+    }
+
+    .footer .social a {
+      margin: 0 0.7rem;
+
+      color: #185fa5;
+
+      text-decoration: none;
+    }
+
+    .footer .social a:hover {
+      text-decoration: underline;
+    }
+
+    .footer .tagline {
+      margin-top: 1rem;
+
+      color: #77756f;
+      font-size: 12px;
+    }
+
+    /* =========================
+       RESPONSIVE
+       ========================= */
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .header {
+        padding-top: 4rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-featured {
+        grid-column: auto;
+      }
+
+      .exp-top {
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .exp-meta {
+        white-space: normal;
+      }
+    }
+
+    /* =========================
+       DARK MODE
+       ========================= */
+
     @media (prefers-color-scheme: dark) {
-      .footer .tagline { color: #b4b2a9; }
+
+      body {
+        background: #1a1a19;
+        color: #e6e6e4;
+      }
+
+      .nav {
+        background: rgba(26, 26, 25, 0.92);
+        border-bottom-color: #3d3d39;
+      }
+
+      .nav-links a {
+        color: #b4b2a9;
+      }
+
+      .header {
+        background:
+          linear-gradient(
+            135deg,
+            #252523 0%,
+            #20201e 100%
+          );
+
+        border-bottom-color: #444441;
+      }
+
+      .header .tagline,
+      .header .subtagline {
+        color: #b4b2a9;
+      }
+
+      .hero-tag {
+        background: #292927;
+
+        border-color: #444441;
+
+        color: #c7c5bc;
+      }
+
+      .section h2,
+      .intro strong,
+      .exp-desc strong {
+        color: #e6e6e4;
+      }
+
+      .intro,
+      .project p,
+      .project li,
+      .small-project p,
+      .exp-desc,
+      .education-card .school {
+        color: #b4b2a9;
+      }
+
+      .section-subtitle {
+        color: #888780;
+      }
+
+      .skill-card {
+        background: #26241f;
+
+        border-color: #444441;
+      }
+
+      .skill-card h3 {
+        color: #99978e;
+      }
+
+      .skill-card p {
+        color: #d3d1c7;
+      }
+
+      .project {
+        background: #242422;
+
+        border-color: #444441;
+      }
+
+      .project-featured {
+        background:
+          linear-gradient(
+            135deg,
+            #292927 0%,
+            #222220 100%
+          );
+      }
+
+      .project:hover {
+        border-color: #66645e;
+
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.28);
+      }
+
+      .project .tech,
+      .small-project .tech,
+      .exp-meta,
+      .education-card .date {
+        color: #888780;
+      }
+
+      .small-project {
+        border-left-color: #55534e;
+      }
+
+      .experience-item {
+        border-bottom-color: #444441;
+      }
+
+      .education-card {
+        border-color: #444441;
+      }
+
+      .cta-section {
+        background: #26241f;
+
+        border-color: #444441;
+      }
+
+      .cta-section p {
+        color: #b4b2a9;
+      }
+
+      .cta-btn-secondary {
+        color: #e6e6e4;
+
+        background: #2c2c2a;
+
+        border-color: #55534e;
+      }
+
+      .footer {
+        background: #171716;
+
+        border-top-color: #444441;
+      }
+
+      .contact a,
+      .project-links a,
+      .small-project a,
+      .footer .social a {
+        color: #85b7eb;
+      }
     }
   </style>
 </head>
+
+
 <body>
 
-<div class="header">
-  <h1>Daniel Salame</h1>
-  <p class="tagline">C/C++ & Linux Systems Software Developer</p>
-  <p class="contact">
-    <a href="tel:+972524421837">052-4421837</a> · 
-    <a href="mailto:danielsalame428@gmail.com">danielsalame428@gmail.com</a> · 
-    <a href="https://github.com/danielsal97" target="_blank">GitHub</a> · 
-    <a href="https://linkedin.com/in/daniel-salame" target="_blank">LinkedIn</a>
-  </p>
-</div>
+  <!-- =========================
+       NAVIGATION
+       ========================= -->
 
-<div class="container">
-  
-  <section class="section">
-    <p class="intro">
-      Low-level systems developer with hands-on experience in multithreading, IPC, sockets, and Linux internals. Builds production-quality systems from scratch with full test coverage. Graduate of Infinity Labs R&D and Excellenteam (Check Point · Google · Kaleidoo.ai). Pursuing an M.Sc. in Computer Science at the Open University of Israel, starting October 2026. Comfortable evaluating and integrating AI tools into development workflows.
+  <nav class="nav">
+    <div class="nav-inner">
+
+      <a class="nav-name" href="#top">
+        Daniel Salame
+      </a>
+
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#systems">Systems</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       HERO
+       ========================= -->
+
+  <header class="header" id="top">
+
+    <div class="header-content">
+
+      <h1>Daniel Salame</h1>
+
+      <p class="tagline">
+        Software Engineer — C/C++, Linux Systems, Optimization & Applied AI
+      </p>
+
+      <p class="subtagline">
+        Systems-focused software engineer building low-level,
+        concurrent and distributed software, with additional experience
+        in mathematical optimization, NLP, data processing and backend systems.
+      </p>
+
+      <p class="contact">
+
+        <a href="tel:+972524421837">
+          052-4421837
+        </a>
+
+        <span>·</span>
+
+        <a href="mailto:danielsalame428@gmail.com">
+          danielsalame428@gmail.com
+        </a>
+
+        <span>·</span>
+
+        <a
+          href="https://github.com/danielsal97"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub
+        </a>
+
+        <span>·</span>
+
+        <a
+          href="https://www.linkedin.com/in/danielsalame/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </a>
+
+      </p>
+
+
+      <div class="hero-tags">
+
+        <span class="hero-tag">
+          C / C++20
+        </span>
+
+        <span class="hero-tag">
+          Linux Systems
+        </span>
+
+        <span class="hero-tag">
+          Multithreading
+        </span>
+
+        <span class="hero-tag">
+          Distributed Storage
+        </span>
+
+        <span class="hero-tag">
+          Networking
+        </span>
+
+        <span class="hero-tag">
+          Optimization
+        </span>
+
+        <span class="hero-tag">
+          AI / NLP
+        </span>
+
+        <span class="hero-tag">
+          Python
+        </span>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="container">
+
+
+    <!-- =========================
+         ABOUT
+         ========================= -->
+
+    <section class="section">
+
+      <p class="intro">
+
+        I am a <strong>systems-oriented software engineer</strong>
+        with a strong foundation in C, C++, Linux and computer science.
+
+        My work includes multithreaded and event-driven systems,
+        IPC, sockets, Linux internals, distributed storage,
+        custom data structures and memory management.
+
+        Beyond systems programming, I have built projects in
+        <strong>AI/NLP, mathematical optimization, backend development
+        and data processing</strong>, using technologies including
+        Python, SentenceTransformers, PostgreSQL, Flask and ILP solvers.
+
+        <br><br>
+
+        Graduate of <strong>Infinity Labs R&D</strong> and
+        <strong>Excellenteam in Academia</strong>
+        (Check Point · Google · Kaleidoo.ai).
+
+        Pursuing an <strong>M.Sc. in Computer Science</strong>
+        at the Open University of Israel, starting October 2026.
+
+        I also actively evaluate and integrate AI-assisted development
+        tools into engineering workflows while maintaining a strong
+        understanding of the underlying systems and implementation.
+
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+         ========================= -->
+
+    <section class="section" id="skills">
+
+      <div class="section-header">
+
+        <h2>Technical Skills</h2>
+
+        <p class="section-subtitle">
+          Core systems expertise combined with algorithms,
+          optimization, AI/NLP and application-level development.
+        </p>
+
+      </div>
+
+
+      <div class="skills-grid">
+
+
+        <div class="skill-card">
+
+          <h3>Languages</h3>
+
+          <p>
+            C, C++, Python
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Linux & Systems</h3>
+
+          <p>
+            Linux, IPC, Signals, Shared Memory,
+            Pipes, Message Queues, epoll, NBD
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Concurrency</h3>
+
+          <p>
+            Multithreading, Thread Pools,
+            Synchronization, Condition Variables,
+            Semaphores, Atomics
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Networking</h3>
+
+          <p>
+            TCP/IP, UDP, Client-Server Architecture,
+            Socket Programming, Protocol Design
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Software Design</h3>
+
+          <p>
+            OOP, OOD, Design Patterns,
+            Interfaces, Modular Architecture,
+            Plugin-Based Design
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Algorithms & CS</h3>
+
+          <p>
+            Algorithms, Data Structures,
+            Complexity, Memory Management,
+            Scheduling
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>AI & NLP</h3>
+
+          <p>
+            Embeddings, SentenceTransformers,
+            Cosine Similarity, Semantic Matching,
+            NLP Processing Pipelines
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Optimization</h3>
+
+          <p>
+            Integer Linear Programming,
+            Constraint Modeling,
+            PuLP, CBC, GLPK
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Backend & Data</h3>
+
+          <p>
+            PostgreSQL, Flask, JSON,
+            Web Scraping, Data Processing
+          </p>
+
+        </div>
+
+
+        <div class="skill-card">
+
+          <h3>Development Tools</h3>
+
+          <p>
+            Git, Make, GDB,
+            Valgrind, strace
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURED PROJECTS
+         ========================= -->
+
+    <section class="section" id="projects">
+
+      <div class="section-header">
+
+        <h2>Featured Engineering Projects</h2>
+
+        <p class="section-subtitle">
+          Selected projects demonstrating systems architecture,
+          distributed software, optimization and applied AI.
+        </p>
+
+      </div>
+
+
+      <div class="projects-grid">
+
+
+        <!-- LDS -->
+
+        <article class="project project-featured">
+
+          <span class="project-label">
+            Systems · Distributed Storage
+          </span>
+
+          <h3>
+            LDS — Linux Distributed Storage
+          </h3>
+
+          <p class="tech">
+            C++20 · Linux · NBD · epoll · TCP/IP ·
+            Multithreading · Reactor Pattern · RAID01
+          </p>
+
+          <p>
+            Distributed block-storage system designed to expose
+            remote storage through a Linux block-device interface.
+            The project combines Linux systems programming,
+            networking, concurrency and extensible software architecture.
+          </p>
+
+          <ul>
+
+            <li>
+              Built an event-driven server around an
+              <strong>epoll-based Reactor architecture</strong>
+              for handling NBD and TCP communication.
+            </li>
+
+            <li>
+              Implemented asynchronous request dispatching through
+              a multithreaded worker pool while keeping the Reactor
+              event loop non-blocking.
+            </li>
+
+            <li>
+              Designed a unified request path for
+              READ, WRITE, FLUSH and TRIM operations.
+            </li>
+
+            <li>
+              Implemented a pluggable storage architecture
+              supporting multiple storage backends.
+            </li>
+
+            <li>
+              Added RAID01-style storage distribution with
+              striping and mirrored redundancy across storage nodes.
+            </li>
+
+            <li>
+              Applied modular C++ design using interfaces,
+              factories, command dispatching and runtime-loadable
+              components.
+            </li>
+
+          </ul>
+
+
+          <div class="project-links">
+
+            <a
+              href="https://github.com/danielsal97"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Browse GitHub →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- AI JOB AGENT -->
+
+        <article class="project">
+
+          <span class="project-label">
+            AI · NLP · Data
+          </span>
+
+          <h3>
+            AI Job Agent
+          </h3>
+
+          <p class="tech">
+            Python · NLP · SentenceTransformers ·
+            PostgreSQL · Web Scraping
+          </p>
+
+          <p>
+            Prototype for automatically evaluating how closely
+            job descriptions match a candidate's resume using
+            semantic NLP representations rather than simple
+            keyword comparison.
+          </p>
+
+          <ul>
+
+            <li>
+              Processes resumes and job descriptions into
+              semantic vector embeddings.
+            </li>
+
+            <li>
+              Uses SentenceTransformer models and
+              cosine-similarity scoring for resume-to-job matching.
+            </li>
+
+            <li>
+              Includes a job-scraping pipeline for collecting
+              and processing job-description data.
+            </li>
+
+            <li>
+              Uses PostgreSQL-oriented data handling with UUID-based
+              identification for job records.
+            </li>
+
+            <li>
+              Structured into separate scraping, processing,
+              configuration, database and UI components.
+            </li>
+
+          </ul>
+
+
+          <div class="project-links">
+
+            <a
+              href="https://github.com/danielsal97/AI-Job-Agent"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View project →
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- ILP -->
+
+        <article class="project">
+
+          <span class="project-label">
+            Algorithms · Optimization
+          </span>
+
+          <h3>
+            School Timetable Optimizer
+          </h3>
+
+          <p class="tech">
+            Python · ILP · PuLP · CBC / GLPK ·
+            Flask · HTML / CSS / JavaScript
+          </p>
+
+          <p>
+            Optimization system that automatically generates
+            school timetables by translating real scheduling
+            requirements into an Integer Linear Programming model.
+          </p>
+
+          <ul>
+
+            <li>
+              Modeled teacher, subject, class, day and time-slot
+              assignments using binary ILP decision variables.
+            </li>
+
+            <li>
+              Defined an optimization objective and constraints for
+              teacher availability, workload, subject requirements,
+              schedule conflicts and days off.
+            </li>
+
+            <li>
+              Implemented the optimization model with
+              <strong>PuLP</strong> using CBC / GLPK solvers.
+            </li>
+
+            <li>
+              Added validation of input requirements before
+              invoking the optimization stage.
+            </li>
+
+            <li>
+              Integrated the solver with a Flask web application
+              that accepts JSON scheduling data and presents
+              generated timetable views.
+            </li>
+
+          </ul>
+
+
+          <div class="project-links">
+
+            <a
+              href="https://github.com/danielsal97/ILP-School-timetabling"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View project →
+            </a>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SYSTEMS FOUNDATIONS
+         ========================= -->
+
+    <section class="section" id="systems">
+
+      <div class="section-header">
+
+        <h2>Systems & Core Engineering</h2>
+
+        <p class="section-subtitle">
+          Lower-level projects and implementations demonstrating
+          operating-system concepts, C programming and fundamental
+          computer-science building blocks.
+        </p>
+
+      </div>
+
+
+      <div class="small-projects-grid">
+
+
+        <article class="small-project">
+
+          <h3>Task Scheduler</h3>
+
+          <p class="tech">
+            C · Linux · Heap · Function Pointers
+          </p>
+
+          <p>
+            Task scheduling library for delayed and periodic execution,
+            using a custom priority queue / min-heap with logarithmic
+            scheduling operations and safe task re-entry behavior.
+          </p>
+
+        </article>
+
+
+        <article class="small-project">
+
+          <h3>Process Watchdog</h3>
+
+          <p class="tech">
+            C · Linux · Signals · IPC
+          </p>
+
+          <p>
+            Mutual-process watchdog using heartbeat signaling
+            to detect process failure and automatically restore
+            an unresponsive process.
+          </p>
+
+        </article>
+
+
+        <article class="small-project">
+
+          <h3>Data Structures & Memory</h3>
+
+          <p class="tech">
+            C · Algorithms · Memory Management
+          </p>
+
+          <p>
+            Implemented core data structures and low-level components
+            from scratch, including linked structures,
+            queues, trees, priority queues and custom memory allocators.
+          </p>
+
+        </article>
+
+
+        <article class="small-project">
+
+          <h3>Linux IPC & Concurrency</h3>
+
+          <p class="tech">
+            C · pthreads · Shared Memory · Pipes · Signals
+          </p>
+
+          <p>
+            Implemented inter-process and multithreaded exercises
+            using POSIX threads, synchronization primitives,
+            shared memory, pipes, semaphores and signals.
+          </p>
+
+        </article>
+
+
+        <article class="small-project">
+
+          <h3>Linux Kernel Firewall</h3>
+
+          <p class="tech">
+            C · Linux Kernel · Networking
+          </p>
+
+          <p>
+            Firewall project developed during Excellenteam,
+            working with Linux kernel-level networking concepts
+            and low-level packet handling.
+          </p>
+
+          <a
+            href="https://github.com/danielsal97/Checkpoint-firewall"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View repository →
+          </a>
+
+        </article>
+
+
+        <article class="small-project">
+
+          <h3>Autocomplete Service</h3>
+
+          <p class="tech">
+            Algorithms · Search · Data Processing
+          </p>
+
+          <p>
+            Google-style word-completion project developed
+            during Excellenteam, focused on efficient search,
+            indexing and ranked autocomplete behavior.
+          </p>
+
+          <a
+            href="https://github.com/danielsal97/google-project-word-complete"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View repository →
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+         ========================= -->
+
+    <section class="section" id="experience">
+
+      <div class="section-header">
+
+        <h2>Experience & Training</h2>
+
+        <p class="section-subtitle">
+          Intensive hands-on engineering programs focused on
+          software development, systems programming and
+          computer-science fundamentals.
+        </p>
+
+      </div>
+
+
+      <div class="experience-list">
+
+
+        <div class="experience-item">
+
+          <div class="exp-top">
+
+            <p class="exp-title">
+              Infinity Labs R&D — Software Development Program
+            </p>
+
+            <p class="exp-meta">
+              2025 – 2026
+            </p>
+
+          </div>
+
+
+          <p class="exp-desc">
+
+            Intensive software-development training centered on
+            <strong>C, C++ and Linux systems programming</strong>.
+
+            Built data structures, memory allocators,
+            multithreaded components and IPC mechanisms from scratch.
+
+            Worked with processes, threads, sockets,
+            shared memory, signals, synchronization,
+            dynamic software architecture and debugging tools.
+
+            Projects emphasized implementation depth,
+            modular design and extensive testing.
+
+          </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+          <div class="exp-top">
+
+            <p class="exp-title">
+              Excellenteam in Academia — Software Engineering Program
+            </p>
+
+            <p class="exp-meta">
+              2024
+            </p>
+
+          </div>
+
+
+          <p class="exp-desc">
+
+            Industry-led software engineering program involving
+            <strong>Check Point, Google and Kaleidoo.ai</strong>.
+
+            Developed projects including a Linux kernel firewall,
+            Google-style autocomplete system and data-processing /
+            ETL work under engineering mentorship.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+         ========================= -->
+
+    <section class="section" id="education">
+
+      <div class="section-header">
+
+        <h2>Education</h2>
+
+      </div>
+
+
+      <div class="education-grid">
+
+
+        <div class="education-card">
+
+          <h3>
+            M.Sc. Computer Science
+          </h3>
+
+          <p class="school">
+            Open University of Israel
+          </p>
+
+          <p class="date">
+            Starting October 2026
+          </p>
+
+        </div>
+
+
+        <div class="education-card">
+
+          <h3>
+            B.Sc. Computer Science
+          </h3>
+
+          <p class="school">
+            Tel-Hai College
+          </p>
+
+          <p class="date">
+            2020 – 2024
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+         ========================= -->
+
+    <section class="cta-section" id="contact">
+
+      <h2>
+        Interested in working together?
+      </h2>
+
+      <p>
+        Open to software engineering opportunities in
+        systems, embedded, infrastructure, cyber and backend development,
+        with particular interest in technically challenging
+        C/C++ and Linux environments.
+      </p>
+
+
+      <div class="cta-buttons">
+
+        <a
+          href="mailto:danielsalame428@gmail.com"
+          class="cta-btn cta-btn-primary"
+        >
+          Get in touch
+        </a>
+
+
+        <a
+          href="https://github.com/danielsal97"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-btn cta-btn-secondary"
+        >
+          GitHub
+        </a>
+
+
+        <a
+          href="https://www.linkedin.com/in/danielsalame/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="cta-btn cta-btn-secondary"
+        >
+          LinkedIn
+        </a>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
+  <footer class="footer">
+
+    <p>
+      Daniel Salame · Software Engineer
     </p>
-  </section>
-  
-  <section class="section">
-    <h2>Technical skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <h3>Languages</h3>
-        <p>C, C++, Python</p>
-      </div>
-      <div class="skill-card">
-        <h3>Systems</h3>
-        <p>Linux, Multithreading, IPC, Signals, Sockets (TCP/UDP), Shared Memory, Pipes, Message Queues</p>
-      </div>
-      <div class="skill-card">
-        <h3>Concepts</h3>
-        <p>OOP, OOD, Design Patterns, Algorithms, Data Structures, Memory Management</p>
-      </div>
-      <div class="skill-card">
-        <h3>Tools</h3>
-        <p>Git, Make, GDB, Valgrind, strace</p>
-      </div>
-    </div>
-  </section>
-  
-  <section class="section">
-    <h2>Featured projects</h2>
-    <div class="projects-grid">
-      <div class="project">
-        <h3>LDS — Linux Distributed Storage</h3>
-        <p class="tech">C++20 · Linux · NBD · epoll · TCP/IP · Multithreading</p>
-        <p>Distributed block-storage server with kernel-space NBD integration and remote TCP clients under unified epoll-driven Reactor architecture. Runtime hot-loadable plugins and multithreaded request dispatching.</p>
-        <a href="https://github.com/danielsal97" target="_blank">View on GitHub →</a>
-      </div>
-      
-      <div class="project">
-        <h3>Task Scheduler</h3>
-        <p class="tech">C · Linux · Heap · Function Pointers</p>
-        <p>Single-threaded task scheduler for delayed and periodic execution. Custom min-heap priority queue with O(log n) scheduling and safe re-entrancy handling.</p>
-        <a href="https://github.com/danielsal97" target="_blank">View on GitHub →</a>
-      </div>
-      
-      <div class="project">
-        <h3>Watchdog</h3>
-        <p class="tech">C · Linux · Signals · IPC</p>
-        <p>Mutual-process watchdog system with SIGUSR1 heartbeat signaling. Detects unresponsive processes and restores them using lock-free atomic signal counting.</p>
-        <a href="https://github.com/danielsal97" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-  </section>
-  
-  <section class="section">
-    <h2>Experience & training</h2>
-    
-    <div class="experience-item">
-      <p class="exp-title">Infinity Labs R&D — Software Development Program</p>
-      <p class="exp-meta">2025 – 2026</p>
-      <p class="exp-desc">Intensive systems programming in C/C++. Built core data structures and allocators from scratch. Implemented IPC primitives over pipes, sockets, shared memory, and message queues. All deliverables shipped with full test suites.</p>
-    </div>
-    
-    <div class="experience-item">
-      <p class="exp-title">Excellenteam in Academia — Software Engineering Program</p>
-      <p class="exp-meta">2024</p>
-      <p class="exp-desc">Industry-led program with Check Point, Google, and Kaleidoo.ai. Built a Linux kernel-module firewall, Google-style autocomplete service, and ETL data pipeline under engineering mentorship.</p>
-    </div>
-    
-    <div class="experience-item">
-      <p class="exp-title">B.Sc. Computer Science</p>
-      <p class="exp-meta">Tel Hai College · 2020 – 2024</p>
+
+
+    <div class="social">
+
+      <a
+        href="https://github.com/danielsal97"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/danielsalame/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LinkedIn
+      </a>
+
+      <a href="mailto:danielsalame428@gmail.com">
+        Email
+      </a>
+
     </div>
 
-    <div class="experience-item">
-      <p class="exp-title">M.Sc. Computer Science</p>
-      <p class="exp-meta">Open University of Israel · Starting October 2026</p>
-    </div>
-  </section>
-  
-  <section class="cta-section">
-    <p>Open to embedded, infrastructure, cyber, and backend roles in Israel</p>
-    <a href="mailto:danielsalame428@gmail.com" class="cta-btn">Get in touch</a>
-  </section>
 
-</div>
+    <p class="tagline">
+      C/C++ · Linux Systems · Distributed Software ·
+      Optimization · AI/NLP · Backend
+    </p>
 
-<div class="footer">
-  <p>Daniel Salame · C/C++ & Linux Systems Developer</p>
-  <div class="social">
-    <a href="https://github.com/danielsal97" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/daniel-salame" target="_blank">LinkedIn</a>
-    <a href="mailto:danielsalame428@gmail.com">Email</a>
-  </div>
-  <p class="tagline">Comfortable evaluating and integrating AI tools into development workflows</p>
-</div>
+  </footer>
+
 
 </body>
 </html>
