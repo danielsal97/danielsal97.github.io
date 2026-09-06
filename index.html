@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Salame — C/C++ & Linux Systems Developer</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; color: #2c2c2a; line-height: 1.7; background: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      html, body { background: #1a1a19; color: #e6e6e4; }
+    }
+    
+    .header { background: linear-gradient(135deg, #f5f5f3 0%, #ebebeb 100%); border-bottom: 1px solid #d3d1c7; padding: 4rem 1.5rem; text-align: center; }
+    @media (prefers-color-scheme: dark) {
+      .header { background: #2c2c2a; border-bottom: 1px solid #444441; }
+    }
+    
+    .header h1 { font-size: 36px; font-weight: 500; margin-bottom: 0.75rem; letter-spacing: -0.5px; }
+    .header .tagline { font-size: 18px; color: #888780; margin-bottom: 1.5rem; font-weight: 400; }
+    @media (prefers-color-scheme: dark) {
+      .header .tagline { color: #b4b2a9; }
+    }
+    
+    .header .contact { font-size: 14px; color: #888780; }
+    .header .contact a { color: #185fa5; text-decoration: none; transition: color 0.2s; }
+    .header .contact a:hover { color: #0c447c; text-decoration: underline; }
+    @media (prefers-color-scheme: dark) {
+      .header .contact { color: #b4b2a9; }
+      .header .contact a { color: #85b7eb; }
+      .header .contact a:hover { color: #b5d4f4; }
+    }
+    
+    .container { max-width: 850px; margin: 0 auto; padding: 3rem 1.5rem; }
+    
+    .section { margin-bottom: 3.5rem; }
+    .section h2 { font-size: 20px; font-weight: 500; margin-bottom: 1.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #2c2c2a; font-size: 14px; }
+    @media (prefers-color-scheme: dark) {
+      .section h2 { color: #e6e6e4; }
+    }
+    
+    .intro { color: #5f5e5a; line-height: 1.8; margin-bottom: 0; font-size: 15px; }
+    @media (prefers-color-scheme: dark) {
+      .intro { color: #b4b2a9; }
+    }
+    
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
+    .skill-card { background: #f1efe8; border: 1px solid #d3d1c7; border-radius: 8px; padding: 1.25rem; }
+    @media (prefers-color-scheme: dark) {
+      .skill-card { background: #26241f; border: 1px solid #444441; }
+    }
+    
+    .skill-card h3 { font-size: 12px; font-weight: 600; color: #5f5e5a; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.75rem; }
+    @media (prefers-color-scheme: dark) {
+      .skill-card h3 { color: #888780; }
+    }
+    
+    .skill-card p { font-size: 14px; color: #2c2c2a; line-height: 1.6; }
+    @media (prefers-color-scheme: dark) {
+      .skill-card p { color: #d3d1c7; }
+    }
+    
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .project { background: #ffffff; border: 1px solid #d3d1c7; border-radius: 10px; padding: 1.75rem; transition: all 0.2s; }
+    @media (prefers-color-scheme: dark) {
+      .project { background: #26241f; border: 1px solid #444441; }
+    }
+    
+    .project:hover { border-color: #888780; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    @media (prefers-color-scheme: dark) {
+      .project:hover { border-color: #5f5e5a; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    }
+    
+    .project h3 { font-size: 16px; font-weight: 500; margin-bottom: 0.5rem; }
+    .project .tech { font-size: 12px; color: #888780; margin-bottom: 0.75rem; font-weight: 500; }
+    @media (prefers-color-scheme: dark) {
+      .project .tech { color: #5f5e5a; }
+    }
+    
+    .project p { font-size: 14px; color: #5f5e5a; line-height: 1.6; margin-bottom: 1rem; }
+    @media (prefers-color-scheme: dark) {
+      .project p { color: #b4b2a9; }
+    }
+    
+    .project a { color: #185fa5; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 500; }
+    .project a:hover { text-decoration: underline; }
+    @media (prefers-color-scheme: dark) {
+      .project a { color: #85b7eb; }
+    }
+    
+    .experience-item { margin-bottom: 2.25rem; padding-bottom: 2.25rem; border-bottom: 1px solid #d3d1c7; }
+    @media (prefers-color-scheme: dark) {
+      .experience-item { border-bottom: 1px solid #444441; }
+    }
+    
+    .experience-item:last-child { border-bottom: none; }
+    .exp-title { font-size: 15px; font-weight: 500; margin-bottom: 0.25rem; }
+    .exp-meta { font-size: 13px; color: #888780; margin-bottom: 0.75rem; }
+    @media (prefers-color-scheme: dark) {
+      .exp-meta { color: #5f5e5a; }
+    }
+    
+    .exp-desc { font-size: 14px; color: #5f5e5a; line-height: 1.7; }
+    @media (prefers-color-scheme: dark) {
+      .exp-desc { color: #b4b2a9; }
+    }
+    
+    .cta-section { text-align: center; padding: 2.5rem 0; }
+    .cta-section p { margin-bottom: 1.5rem; color: #888780; font-size: 15px; }
+    @media (prefers-color-scheme: dark) {
+      .cta-section p { color: #b4b2a9; }
+    }
+    
+    .cta-btn { display: inline-block; padding: 0.85rem 2rem; border: 1px solid #185fa5; border-radius: 6px; color: #ffffff; background: #185fa5; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.2s; cursor: pointer; }
+    .cta-btn:hover { background: #0c447c; border-color: #0c447c; }
+    @media (prefers-color-scheme: dark) {
+      .cta-btn { background: #185fa5; border-color: #378add; }
+      .cta-btn:hover { background: #0c447c; border-color: #0c447c; }
+    }
+    
+    .footer { background: #f1efe8; border-top: 1px solid #d3d1c7; padding: 2.5rem 1.5rem; text-align: center; color: #888780; font-size: 13px; }
+    @media (prefers-color-scheme: dark) {
+      .footer { background: #1a1a19; border-top: 1px solid #444441; color: #888780; }
+    }
+    
+    .footer a { color: #185fa5; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    @media (prefers-color-scheme: dark) {
+      .footer a { color: #85b7eb; }
+    }
+    
+    .footer .social { margin-top: 1.25rem; }
+    .footer .social a { margin: 0 1rem; }
+    
+    .footer .tagline { margin-top: 1.5rem; color: #5f5e5a; }
+    @media (prefers-color-scheme: dark) {
+      .footer .tagline { color: #b4b2a9; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Daniel Salame</h1>
+  <p class="tagline">C/C++ & Linux Systems Software Developer</p>
+  <p class="contact">
+    <a href="tel:+972524421837">052-4421837</a> · 
+    <a href="mailto:danielsalame428@gmail.com">danielsalame428@gmail.com</a> · 
+    <a href="https://github.com/danielsal97" target="_blank">GitHub</a> · 
+    <a href="https://linkedin.com/in/daniel-salame" target="_blank">LinkedIn</a>
+  </p>
+</div>
+
+<div class="container">
+  
+  <section class="section">
+    <p class="intro">
+      Low-level systems developer with hands-on experience in multithreading, IPC, sockets, and Linux internals. Builds production-quality systems from scratch with full test coverage. Graduate of Infinity Labs R&D and Excellenteam (Check Point · Google · Kaleidoo.ai). Pursuing an M.Sc. in Computer Science at the Open University of Israel, starting October 2026. Comfortable evaluating and integrating AI tools into development workflows.
+    </p>
+  </section>
+  
+  <section class="section">
+    <h2>Technical skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <p>C, C++, Python</p>
+      </div>
+      <div class="skill-card">
+        <h3>Systems</h3>
+        <p>Linux, Multithreading, IPC, Signals, Sockets (TCP/UDP), Shared Memory, Pipes, Message Queues</p>
+      </div>
+      <div class="skill-card">
+        <h3>Concepts</h3>
+        <p>OOP, OOD, Design Patterns, Algorithms, Data Structures, Memory Management</p>
+      </div>
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <p>Git, Make, GDB, Valgrind, strace</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2>Featured projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>LDS — Linux Distributed Storage</h3>
+        <p class="tech">C++20 · Linux · NBD · epoll · TCP/IP · Multithreading</p>
+        <p>Distributed block-storage server with kernel-space NBD integration and remote TCP clients under unified epoll-driven Reactor architecture. Runtime hot-loadable plugins and multithreaded request dispatching.</p>
+        <a href="https://github.com/danielsal97" target="_blank">View on GitHub →</a>
+      </div>
+      
+      <div class="project">
+        <h3>Task Scheduler</h3>
+        <p class="tech">C · Linux · Heap · Function Pointers</p>
+        <p>Single-threaded task scheduler for delayed and periodic execution. Custom min-heap priority queue with O(log n) scheduling and safe re-entrancy handling.</p>
+        <a href="https://github.com/danielsal97" target="_blank">View on GitHub →</a>
+      </div>
+      
+      <div class="project">
+        <h3>Watchdog</h3>
+        <p class="tech">C · Linux · Signals · IPC</p>
+        <p>Mutual-process watchdog system with SIGUSR1 heartbeat signaling. Detects unresponsive processes and restores them using lock-free atomic signal counting.</p>
+        <a href="https://github.com/danielsal97" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <h2>Experience & training</h2>
+    
+    <div class="experience-item">
+      <p class="exp-title">Infinity Labs R&D — Software Development Program</p>
+      <p class="exp-meta">2025 – 2026</p>
+      <p class="exp-desc">Intensive systems programming in C/C++. Built core data structures and allocators from scratch. Implemented IPC primitives over pipes, sockets, shared memory, and message queues. All deliverables shipped with full test suites.</p>
+    </div>
+    
+    <div class="experience-item">
+      <p class="exp-title">Excellenteam in Academia — Software Engineering Program</p>
+      <p class="exp-meta">2024</p>
+      <p class="exp-desc">Industry-led program with Check Point, Google, and Kaleidoo.ai. Built a Linux kernel-module firewall, Google-style autocomplete service, and ETL data pipeline under engineering mentorship.</p>
+    </div>
+    
+    <div class="experience-item">
+      <p class="exp-title">B.Sc. Computer Science</p>
+      <p class="exp-meta">Tel Hai College · 2020 – 2024</p>
+    </div>
+
+    <div class="experience-item">
+      <p class="exp-title">M.Sc. Computer Science</p>
+      <p class="exp-meta">Open University of Israel · Starting October 2026</p>
+    </div>
+  </section>
+  
+  <section class="cta-section">
+    <p>Open to embedded, infrastructure, cyber, and backend roles in Israel</p>
+    <a href="mailto:danielsalame428@gmail.com" class="cta-btn">Get in touch</a>
+  </section>
+
+</div>
+
+<div class="footer">
+  <p>Daniel Salame · C/C++ & Linux Systems Developer</p>
+  <div class="social">
+    <a href="https://github.com/danielsal97" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/daniel-salame" target="_blank">LinkedIn</a>
+    <a href="mailto:danielsalame428@gmail.com">Email</a>
+  </div>
+  <p class="tagline">Comfortable evaluating and integrating AI tools into development workflows</p>
+</div>
+
+</body>
+</html>
